@@ -8,7 +8,6 @@
 	<body>
 		<main class="content-main col-xs-12 col-md-9">
 			<div class="well __web-inspector-hide-shortcut__">
-				The following document is intended to serve as an example of what is expected in your PWP Milestone documentation. <strong>Your own projects and Milestones are expected to differ</strong>, but please use this as a guide.
 			</div>
 			<h2>PWP Milestone 1</h2>
 			<h3>Purpose, Audience &amp; Goal</h3>

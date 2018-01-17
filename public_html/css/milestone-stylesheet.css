@@ -1,0 +1,52 @@
+body {
+
+}
+
+h2 {
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	font-weight: 300;
+	line-height: 1.3em;
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+}
+
+h3 {
+	color: #444;
+}
+/*font-weight*/
+.font-light {
+	font-weight: 300;
+}
+
+.font-bold {
+	font-weight: 700;
+}
+
+.font-black {
+	font-weight: 900;
+}
+
+/*font-styles*/
+.font-condensed {
+	font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
+}
+
+.font-caps {
+	text-transform: uppercase;
+}
+
+.font-condensed-caps {
+	font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.content-main h1:first-child, .content-main h2:first-child, .content-main h3:first-child {
+	margin-top: -8px;
+}
+
+.content-main h4:first-child, .content-main h5:first-child, .content-main h6:first-child, .content-main p:first-child {
+	margin-top: 0;
+}
+
