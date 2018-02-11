@@ -12,7 +12,7 @@ var starArray = [];
 var lineArray = [];
 var verticalLines = [];
 
-var numberOfStars = 2000;
+var numberOfStars = 1000;
 var numberOfLines = 7;
 var numberOfVerticalLines = 15;
 
@@ -25,7 +25,6 @@ var startingWidthY = horizon;
 var endingWidthX = startPointOfVanishingPointWidth + vanishingPointWidth;
 var frontGridSpacing = innerWidth / numberOfVerticalLines;
 var backGridSpacing = vanishingPointWidth / numberOfVerticalLines;
-// var rateOfGrowth = ( (()/(innerHeight - horizon)) * (innerWidth - vanishingPointWidth)) / 2;
 
 for(i = 0; i < numberOfStars; i++) {
 	var radius = Math.random() * 1;
@@ -76,6 +75,12 @@ function Star(x, y, dx, dy, radius) {
 		c.stroke();
 		c.fill();
 
+		c.beginPath();
+		c.arc(this.x, this.y, (this.radius + 1), 0, Math.PI * 2, false);
+		c.strokeStyle = "#2238B2E7";
+		c.stroke();
+		c.fill();
+
 	}
 
 	this.update = function() {
@@ -110,6 +115,18 @@ function Line(xLine, yLine, x1Line, dyLine) {
 		c.moveTo(this.xLine, this.yLine);
 		c.lineTo(this.x1Line, this.yLine);
 		c.strokeStyle = "#38B2E7";
+		c.stroke();
+
+		c.beginPath();
+		c.moveTo(this.xLine, (this.yLine + 1));
+		c.lineTo(this.x1Line, (this.yLine + 1));
+		c.strokeStyle = "#2238B2E7";
+		c.stroke();
+
+		c.beginPath();
+		c.moveTo(this.xLine, (this.yLine - 1));
+		c.lineTo(this.x1Line, (this.yLine - 1));
+		c.strokeStyle = "#2238B2E7";
 		c.stroke();
 
 	}
@@ -170,6 +187,18 @@ function StaticLines(xStaticLine, yStaticLine, x1StaticLine, y1StaticLine) {
 		c.strokeStyle = "#38B2E7";
 		c.stroke();
 
+		c.beginPath();
+		c.moveTo((this.xStaticLine + 1), this.yStaticLine);
+		c.lineTo((this.x1StaticLine + 1), this.y1StaticLine);
+		c.strokeStyle = "#2238B2E7";
+		c.stroke();
+
+		c.beginPath();
+		c.moveTo((this.xStaticLine - 1), this.yStaticLine);
+		c.lineTo((this.x1StaticLine - 1), this.y1StaticLine);
+		c.strokeStyle = "#2238B2E7";
+		c.stroke();
+
 	}
 
 }
@@ -180,10 +209,29 @@ function animate() {
 	requestAnimationFrame(animate);
 	c.clearRect(0, 0, innerWidth, innerHeight);
 
+	c.fillStyle = "#E2148B";
+	c.font = "bold 16px Arial";
+	c.fillText("WHO IS KEN", (innerWidth / 2) - 45, (horizon) - 10);
+	c.fillStyle = "#6D84C0";
+	c.font = "bold 100px Arial";
+	c.fillText("COMING SOON", (innerWidth / 2) - 350, (innerHeight / 2));
+
 	c.beginPath();
 	c.moveTo(0, horizon);
 	c.lineTo(innerWidth, horizon);
 	c.strokeStyle = "#38B2E7";
+	c.stroke();
+
+	c.beginPath();
+	c.moveTo(0, (horizon + 1));
+	c.lineTo(innerWidth, (horizon + 1));
+	c.strokeStyle = "#2238B2E7";
+	c.stroke();
+
+	c.beginPath();
+	c.moveTo(0, (horizon - 1));
+	c.lineTo(innerWidth, (horizon - 1));
+	c.strokeStyle = "#2238B2E7";
 	c.stroke();
 
 	for (i = 0; i < starArray.length; i++) {
