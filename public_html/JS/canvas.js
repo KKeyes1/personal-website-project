@@ -8,51 +8,55 @@ canvas.height = window.innerHeight;
 var c = canvas.getContext("2d");
 
 
+var starArray = [];
+var lineArray = [];
+var verticalLines = [];
 
-// Static Line Object that takes two sets of x and y coordinates and draws perspective lines and draws them on the screen
+var numberOfStars = 2000;
+var numberOfLines = 7;
+var numberOfVerticalLines = 15;
 
-function StaticLines(xStaticLine, yStaticLine, x1StaticLine, y1StaticLine) {
+// percentage of the screen that the "horizon" will take up
+var vanishingPointWidth = innerWidth * 0.01;
+var startPointOfVanishingPointWidth = (innerWidth - vanishingPointWidth) / 2;
+var horizon = .75 * innerHeight;
+var startingWidthX = startPointOfVanishingPointWidth;
+var startingWidthY = horizon;
+var endingWidthX = startPointOfVanishingPointWidth + vanishingPointWidth;
+var frontGridSpacing = innerWidth / numberOfVerticalLines;
+var backGridSpacing = vanishingPointWidth / numberOfVerticalLines;
+// var rateOfGrowth = ( (()/(innerHeight - horizon)) * (innerWidth - vanishingPointWidth)) / 2;
 
-	this.xStaticLine = xStaticLine;
-	this.yStaticLine = yStaticLine;
-	this.x1StaticLine = x1StaticLine;
-	this.y1StaticLine = y1StaticLine;
-
-	this.draw = function () {
-
-		c.beginPath();
-		c.moveTo(this.xStaticLine, this.yStaticLine);
-		c.lineTo(this.x1StaticLine, this.y1StaticLine);
-		c.strokeStyle = "#38B2E7";
-		c.stroke();
-
-	}
+for(i = 0; i < numberOfStars; i++) {
+	var radius = Math.random() * 1;
+	var x = Math.random() * (innerWidth - radius * 2) + radius;
+	var y = Math.random() * horizon;
+	var dx = (Math.random() - 0.5) / 10;
+	var dy = (Math.random() - 0.5) / 10;
+	starArray.push(new Star(x, y, dx, dy, radius));
 
 }
 
-// where I build my array of lines to draw on the screen
-// an empty array to populate
-var verticalLines = [];
-// number of vertical lines
-var numberOfVerticalLines = 15;
-// percentage of the screen that the "horizon" will take up
-var depth = 0.01;
+for (i = 0; i < numberOfLines; i++) {
+
+	var xLine = startingWidthX;
+	var yLine = startingWidthY;
+	var x1Line = endingWidthX;
+	var dyLine = -i;
+	lineArray.push(new Line(xLine, yLine, x1Line, dyLine));
+}
 
 
 //loop that creates the array of lines with varying x and y coordinates
 for (i = 0; i < numberOfVerticalLines + 1; i++) {
 
-	var xStaticLine = ((innerWidth / numberOfVerticalLines) * i ) + 0;
+	var xStaticLine = (frontGridSpacing * i );
 	var yStaticLine = innerHeight;
-	var x1StaticLine = (((innerWidth * depth) / numberOfVerticalLines) * i) + (innerWidth - (innerWidth * depth)) / 2;
-	var y1StaticLine = innerHeight / 2;
+	var x1StaticLine = (backGridSpacing * i) + startPointOfVanishingPointWidth;
+	var y1StaticLine = horizon;
 	verticalLines.push(new StaticLines(xStaticLine, yStaticLine, x1StaticLine, y1StaticLine));
 
 }
-
-
-// Star Object that takes  positional coordinates x, y and directional sppeds dx, dy and a size radius, in order to draw the stars on the screen, and/or to update their direction when they collide with the edges of the window
-
 
 
 function Star(x, y, dx, dy, radius) {
@@ -79,7 +83,7 @@ function Star(x, y, dx, dy, radius) {
 		if (this.x + this.radius > innerWidth || this.x - this.radius < 0) {
 			this.dx = -this.dx;
 		}
-		if (this.y + this.radius > (innerHeight / 2) || this.y - this.radius < 0) {
+		if (this.y + this.radius > horizon || this.y - this.radius < 0) {
 			this.dy = -this.dy;
 		}
 		this.x += this.dx;
@@ -90,24 +94,6 @@ function Star(x, y, dx, dy, radius) {
 	}
 
 }
-
-var starArray = [];
-var numberOfStars = 2000;
-
-for(i = 0; i < numberOfStars; i++) {
-	var radius = Math.random() * 1;
-	var x = Math.random() * (innerWidth - radius * 2) + radius;
-	var y = Math.random() * innerHeight / 2;
-	var dx = (Math.random() - 0.5) / 10;
-	var dy = (Math.random() - 0.5) / 10;
-	starArray.push(new Star(x, y, dx, dy, radius));
-
-}
-
-
-
-// Line Object that accepts two x coordinates and one y that is updated to move the lone down the screen, and a value to control that speed dyLine
-
 
 
 function Line(xLine, yLine, x1Line, dyLine) {
@@ -136,12 +122,26 @@ function Line(xLine, yLine, x1Line, dyLine) {
 
 			return;
 
-			} else if (this.yLine > innerHeight) {
+		} else if (this.yLine > innerHeight) {
 
-			this.yLine = innerHeight / 2;
+			this.xLine = startingWidthX;
+			this.yLine = startingWidthY;
+			this.x1Line = endingWidthX;
 			this.dyLine = 0;
 
 		}
+
+		var growTo = ((this.yLine - horizon)/(innerHeight - horizon)) * (innerWidth - vanishingPointWidth);
+
+		var currentLineSize = this.x1Line - this.xLine;
+
+		var change = growTo - currentLineSize;
+
+		var rate = change / 2;
+
+		this.xLine -= rate;
+
+		this.x1Line += rate;
 
 		this.dyLine += this.gravity;
 
@@ -153,20 +153,26 @@ function Line(xLine, yLine, x1Line, dyLine) {
 
 }
 
+// Static Line Object that takes two sets of x and y coordinates and draws perspective lines and draws them on the screen
 
-var lineArray = [];
-var numberOfLines = 10;
+function StaticLines(xStaticLine, yStaticLine, x1StaticLine, y1StaticLine) {
 
-for (i = 0; i < numberOfLines; i++) {
+	this.xStaticLine = xStaticLine;
+	this.yStaticLine = yStaticLine;
+	this.x1StaticLine = x1StaticLine;
+	this.y1StaticLine = y1StaticLine;
 
-	var xLine = 0;
-	var yLine = (innerHeight / 2);
-	var x1Line = innerWidth;
-	var dyLine = -i;
-	lineArray.push(new Line(xLine, yLine, x1Line, dyLine));
+	this.draw = function () {
+
+		c.beginPath();
+		c.moveTo(this.xStaticLine, this.yStaticLine);
+		c.lineTo(this.x1StaticLine, this.y1StaticLine);
+		c.strokeStyle = "#38B2E7";
+		c.stroke();
+
+	}
+
 }
-
-
 // animate functions for objects on the screen
 
 function animate() {
@@ -175,8 +181,8 @@ function animate() {
 	c.clearRect(0, 0, innerWidth, innerHeight);
 
 	c.beginPath();
-	c.moveTo(0, (innerHeight / 2));
-	c.lineTo(innerWidth, (innerHeight / 2));
+	c.moveTo(0, horizon);
+	c.lineTo(innerWidth, horizon);
 	c.strokeStyle = "#38B2E7";
 	c.stroke();
 
