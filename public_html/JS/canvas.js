@@ -6,6 +6,42 @@ canvas.height = window.innerHeight;
 
 var c = canvas.getContext("2d");
 
+
+function staticLines(xStaticLine, yStaticLine, x1StaticLine, y1StaticLine) {
+
+	this.xStaticLine = xStaticLine;
+	this.yStaticLine = yStaticLine;
+	this.x1StaticLine = x1StaticLine;
+	this.y1StaticLine = y1StaticLine;
+	this.draw = function () {
+
+		c.beginPath();
+		c.moveTo(this.xStaticLine, this.yStaticLine);
+		c.lineTo(this.x1StaticLine, this.y1StaticLine);
+		c.strokeStyle = "#333";
+		c.stroke();
+
+	}
+
+}
+
+
+var verticalLines = [];
+var numberOfVerticalLines = 15;
+var depth = 0.3;
+
+for (i = 0; i < numberOfVerticalLines + 1; i++) {
+
+	var xStaticLine = ((innerWidth / numberOfVerticalLines) * i ) + 0;
+	var yStaticLine = innerHeight;
+	var x1StaticLine = (((innerWidth * depth) / numberOfVerticalLines) * i) + (innerWidth - (innerWidth * depth)) / 2;
+	var y1StaticLine = innerHeight / 2;
+	verticalLines.push(new staticLines(xStaticLine, yStaticLine, x1StaticLine, y1StaticLine));
+
+}
+
+
+
 function Star(x, y, dx, dy, radius) {
 
 	this.x = x;
@@ -43,8 +79,9 @@ function Star(x, y, dx, dy, radius) {
 }
 
 var starArray = [];
+var numberOfStars = 2000;
 
-for(i = 0; i < 2000; i++) {
+for(i = 0; i < numberOfStars; i++) {
 	var radius = Math.random() * 1;
 	var x = Math.random() * (innerWidth - radius * 2) + radius;
 	var y = Math.random() * innerHeight / 2;
@@ -74,17 +111,11 @@ function Line(xLine, yLine, x1Line, dyLine) {
 
 	this.updateLine = function() {
 
-		if (this.yLine > innerHeight + (((innerHeight / 2) / numberOfLines) * i ) + (innerHeight / 2)) {
+		if (this.yLine > innerHeight) {
 
 			lineArray.push(new Line(0, innerHeight / 2, innerWidth, this.dyLine));
-
-		}
-
-		else if (this.yLine > innerHeight) {
 
 			lineArray.shift();
-
-			lineArray.push(new Line(0, innerHeight / 2, innerWidth, this.dyLine));
 
 			}
 
@@ -99,7 +130,7 @@ function Line(xLine, yLine, x1Line, dyLine) {
 
 
 var lineArray = [];
-var numberOfLines = 2;
+var numberOfLines = 1;
 
 for (i = 0; i < numberOfLines; i++) {
 
@@ -110,7 +141,6 @@ for (i = 0; i < numberOfLines; i++) {
 	lineArray.push(new Line(xLine, yLine, x1Line, dyLine));
 
 }
-
 
 function animate() {
 
@@ -137,5 +167,19 @@ function animateLine() {
 
 }
 
+
+function drawVerticalLines() {
+
+	requestAnimationFrame(drawVerticalLines);
+
+	for (i = 0; i < verticalLines.length; i++) {
+
+		verticalLines[i].draw();
+
+	}
+
+}
+
 animate();
 animateLine();
+drawVerticalLines();
