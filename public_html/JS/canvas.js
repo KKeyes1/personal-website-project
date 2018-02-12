@@ -1,31 +1,51 @@
+// landing page design for personal portfolio website
+
+
+// grabs the canvas element from html
 var canvas = document.querySelector("canvas");
 
-
+// sets the canvis width and height to the current size of the browser window
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-
+// grabs 2d context for the canvas and sets it to a generic variable c
 var c = canvas.getContext("2d");
 
-
+// sets up the empty arrays for the different objects to be animated
 var starArray = [];
 var lineArray = [];
 var verticalLines = [];
 
+// sets up the number of elements for each object
 var numberOfStars = 1000;
 var numberOfLines = 7;
 var numberOfVerticalLines = 15;
 
-// percentage of the screen that the "horizon" will take up
+// variables that can be set
+
+// the width of the vanishing point of the animated grid as a percentage of the width of the screen
 var vanishingPointWidth = innerWidth * 0.01;
+
+// starting x-position of the vanishing point
 var startPointOfVanishingPointWidth = (innerWidth - vanishingPointWidth) / 2;
+
+// sets the y-position of the horizon line as a percentage of the height of the screen
 var horizon = .75 * innerHeight;
+
+// important values for setting up new lines, initial x-position, initial y-position, and ending x-position  for a line
 var startingWidthX = startPointOfVanishingPointWidth;
 var startingWidthY = horizon;
 var endingWidthX = startPointOfVanishingPointWidth + vanishingPointWidth;
+
+// sets the distance between x-position values depending on the number of vertical lines to be displayed on the grid withing the screen width
 var frontGridSpacing = innerWidth / numberOfVerticalLines;
+
+// sets up the distance between the x-position on the number of vertical lines to be displayed within the vanishingPointWidth
 var backGridSpacing = vanishingPointWidth / numberOfVerticalLines;
 
+// for loops that generate an array of elements with the appropriate variables to build the objects
+
+// for loop that runs through the number of stars and generates an array of stars with variable radii, x and y positions, and x and y positional rate-of-change
 for(i = 0; i < numberOfStars; i++) {
 	var radius = Math.random() * 1;
 	var x = Math.random() * (innerWidth - radius * 2) + radius;
@@ -36,6 +56,7 @@ for(i = 0; i < numberOfStars; i++) {
 
 }
 
+// for loop that runs through the number of horizontal lines and populates an array with the starting size and position of the lines
 for (i = 0; i < numberOfLines; i++) {
 
 	var xLine = startingWidthX;
@@ -45,8 +66,7 @@ for (i = 0; i < numberOfLines; i++) {
 	lineArray.push(new Line(xLine, yLine, x1Line, dyLine));
 }
 
-
-//loop that creates the array of lines with varying x and y coordinates
+//loop that creates the array of vertical lines evenly spaced along the base of the screen across the whole width and at the horizon line for the width of the vanishing point
 for (i = 0; i < numberOfVerticalLines + 1; i++) {
 
 	var xStaticLine = (frontGridSpacing * i );
@@ -57,7 +77,7 @@ for (i = 0; i < numberOfVerticalLines + 1; i++) {
 
 }
 
-
+// Star Object with draw and update methods
 function Star(x, y, dx, dy, radius) {
 
 	this.x = x;
@@ -66,23 +86,20 @@ function Star(x, y, dx, dy, radius) {
 	this.dy = dy;
 	this.radius = radius;
 
+	// draw method for Star takes the starting position of x and y coordinates, the delta values for x and y and a radius to draw one star
 	this.draw = function() {
 
 		c.fillStyle = "#38B2E7";
 		c.beginPath();
 		c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-		c.strokeStyle = "#38B2E7";
-		c.stroke();
-		c.fill();
-
-		c.beginPath();
-		c.arc(this.x, this.y, (this.radius + 1), 0, Math.PI * 2, false);
 		c.strokeStyle = "#2238B2E7";
 		c.stroke();
 		c.fill();
 
 	}
 
+	// update method that checks for certain conditions and updates object state variables, this contains all the stars inside a specific box, reversing the relevant delta variable to turn the star around if it reaches the boundary
+	// then calls the draw method to draw the new star
 	this.update = function() {
 
 		if (this.x + this.radius > innerWidth || this.x - this.radius < 0) {
@@ -100,7 +117,7 @@ function Star(x, y, dx, dy, radius) {
 
 }
 
-
+// line object with draw and update methods
 function Line(xLine, yLine, x1Line, dyLine) {
 
 	this.xLine = xLine;
@@ -109,6 +126,8 @@ function Line(xLine, yLine, x1Line, dyLine) {
 	this.dyLine = dyLine;
 	this.gravity = .1;
 
+	// drawLine method that takes a start and end x-values, a single y-value (horizontal line) and a delta y value for moving it down the screen
+	// current version uses one single array element to draw three lines next to each other to create a glow - in future may need to create a shadow object
 	this.drawLine = function () {
 
 		c.beginPath();
@@ -131,6 +150,8 @@ function Line(xLine, yLine, x1Line, dyLine) {
 
 	}
 
+	// line update method, checks if line is currently above the horizon, updates its position, but does not draw the line, if the line reaches the bottom of the screen, update the yLine back to the horizon, and resets the delta y, otherwise the yline value is used to calculate the rate of growth for the line, the x-values are changed accordingly and the delta is accelerated by the value of gravity
+	// then it calls the draw method to draw the new line
 	this.updateLine = function() {
 
 		if (this.dyLine < 0) {
@@ -170,8 +191,7 @@ function Line(xLine, yLine, x1Line, dyLine) {
 
 }
 
-// Static Line Object that takes two sets of x and y coordinates and draws perspective lines and draws them on the screen
-
+// Static Line Object with draw method
 function StaticLines(xStaticLine, yStaticLine, x1StaticLine, y1StaticLine) {
 
 	this.xStaticLine = xStaticLine;
@@ -179,6 +199,7 @@ function StaticLines(xStaticLine, yStaticLine, x1StaticLine, y1StaticLine) {
 	this.x1StaticLine = x1StaticLine;
 	this.y1StaticLine = y1StaticLine;
 
+	// takes x and y coordinates for the beginning and end of a line and draws the lines
 	this.draw = function () {
 
 		c.beginPath();
@@ -202,8 +223,12 @@ function StaticLines(xStaticLine, yStaticLine, x1StaticLine, y1StaticLine) {
 	}
 
 }
+
+
 // animate functions for objects on the screen
 
+// primary animate function
+// recursively calls itself, clears the canvas, draws a horizon line, writes text, and loops through the star array and calls the .update method for each object
 function animate() {
 
 	requestAnimationFrame(animate);
@@ -242,6 +267,7 @@ function animate() {
 }
 
 
+// animate function that recursively calls itself and iterates through the line array while calling the updateLine method on each object
 function animateLine() {
 
 	requestAnimationFrame(animateLine);
@@ -253,7 +279,7 @@ function animateLine() {
 
 }
 
-
+// animate function that recursively calls itself and iterates through the vertical Lines array calling the draw method for each object
 function drawVerticalLines() {
 
 	requestAnimationFrame(drawVerticalLines);
@@ -266,8 +292,7 @@ function drawVerticalLines() {
 
 }
 
-
-// calling all three animate functions starts it off
+// calls to the animate function
 animate();
 animateLine();
 drawVerticalLines();
