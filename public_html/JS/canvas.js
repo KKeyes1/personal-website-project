@@ -15,11 +15,13 @@ var c = canvas.getContext("2d");
 var starArray = [];
 var lineArray = [];
 var verticalLines = [];
+var shadowArray = [];
 
 // sets up the number of elements for each object
 var numberOfStars = 1000;
 var numberOfLines = 7;
 var numberOfVerticalLines = 15;
+var numberOfShadowLines = 3;
 
 // variables that can be set
 
@@ -74,6 +76,22 @@ for (i = 0; i < numberOfVerticalLines + 1; i++) {
 	var x1StaticLine = (backGridSpacing * i) + startPointOfVanishingPointWidth;
 	var y1StaticLine = horizon;
 	verticalLines.push(new StaticLines(xStaticLine, yStaticLine, x1StaticLine, y1StaticLine));
+
+}
+
+// loop that creates an array of shadow lines that will mirror the lines but be offset by one for each line
+for (i = 0; i < numberOfLines; i++) {
+
+	for (j = 0; j < numberOfShadowLines; j++) {
+
+		var xLineShadow = startingWidthX;
+		var x1LineShadow = endingWidthX;
+		var yLineTop = startingWidthY + j;
+		var yLineBottom = startingWidthY - j;
+		var dyLineShadow = -i;
+		shadowArray.push(new shadowLine(xLineShadow, x1LineShadow, yLineTop, yLineBottom, dyLineShadow));
+
+	}
 
 }
 
@@ -136,17 +154,17 @@ function Line(xLine, yLine, x1Line, dyLine) {
 		c.strokeStyle = "#38B2E7";
 		c.stroke();
 
-		c.beginPath();
-		c.moveTo(this.xLine, (this.yLine + 1));
-		c.lineTo(this.x1Line, (this.yLine + 1));
-		c.strokeStyle = "#2238B2E7";
-		c.stroke();
-
-		c.beginPath();
-		c.moveTo(this.xLine, (this.yLine - 1));
-		c.lineTo(this.x1Line, (this.yLine - 1));
-		c.strokeStyle = "#2238B2E7";
-		c.stroke();
+		// c.beginPath();
+		// c.moveTo(this.xLine, (this.yLine + 1));
+		// c.lineTo(this.x1Line, (this.yLine + 1));
+		// c.strokeStyle = "#2238B2E7";
+		// c.stroke();
+		//
+		// c.beginPath();
+		// c.moveTo(this.xLine, (this.yLine - 1));
+		// c.lineTo(this.x1Line, (this.yLine - 1));
+		// c.strokeStyle = "#2238B2E7";
+		// c.stroke();
 
 	}
 
@@ -191,6 +209,74 @@ function Line(xLine, yLine, x1Line, dyLine) {
 
 }
 
+// shadow line object
+function shadowLine(xLineShadow, x1LineShadow, yLineTop, yLineBottom, dyLineShadow) {
+
+	this.xLineShadow = xLineShadow;
+	this.x1LineShadow = x1LineShadow;
+	this.yLineTop = yLineTop;
+	this.yLineBottom = yLineBottom;
+	this.dyLineShadow = dyLineShadow;
+	this.gravity = .1;
+
+	this.drawShadow = function() {
+
+		c.beginPath();
+		c.moveTo(this.xLineShadow, this.yLineTop);
+		c.lineTo(this.x1LineShadow, this.yLineTop);
+		c.strokeStyle = "#38B2E7";
+		c.stroke();
+
+		c.beginPath();
+		c.moveTo(this.xLineShadow, this.yLineBottom);
+		c.lineTo(this.x1LineShadow, this.yLineBottom);
+		c.strokeStyle = "#38B2E7";
+		c.stroke();
+
+	}
+
+	this.updateShadow = function() {
+
+		if (this.dyLineShadow < 0) {
+
+			this.dyLineShadow += this.gravity;
+
+			return;
+
+		} else if (this.yLineTop > innerHeight || this.yLineBottom > innerHeight) {
+
+			this.xLineShadow = startingWidthX;
+			this.yLineTop = startingWidthY + 1;
+			this.yLineBottom = startingWidthY - 1;
+			this.x1LineShadow = endingWidthX;
+			this.dyLineShadow = 0;
+
+		}
+
+		var growTo = ((this.yLineTop - horizon)/(innerHeight - horizon)) * (innerWidth - vanishingPointWidth);
+
+		var currentLineSize = this.x1LineShadow - this.xLineShadow;
+
+		var change = growTo - currentLineSize;
+
+		var rate = change / 2;
+
+		this.xLineShadow -= rate;
+
+		this.x1LineShadow += rate;
+
+		this.dyLineShadow += this.gravity;
+
+		this.yLineTop += this.dyLineShadow;
+
+		this.yLineBottom += this.dyLineShadow;
+
+		this.drawShadow();
+
+	}
+
+}
+
 // Static Line Object with draw method
 function StaticLines(xStaticLine, yStaticLine, x1StaticLine, y1StaticLine) {
 
@@ -208,17 +294,17 @@ function StaticLines(xStaticLine, yStaticLine, x1StaticLine, y1StaticLine) {
 		c.strokeStyle = "#38B2E7";
 		c.stroke();
 
-		c.beginPath();
-		c.moveTo((this.xStaticLine + 1), this.yStaticLine);
-		c.lineTo((this.x1StaticLine + 1), this.y1StaticLine);
-		c.strokeStyle = "#2238B2E7";
-		c.stroke();
-
-		c.beginPath();
-		c.moveTo((this.xStaticLine - 1), this.yStaticLine);
-		c.lineTo((this.x1StaticLine - 1), this.y1StaticLine);
-		c.strokeStyle = "#2238B2E7";
-		c.stroke();
+		// c.beginPath();
+		// c.moveTo((this.xStaticLine + 1), this.yStaticLine);
+		// c.lineTo((this.x1StaticLine + 1), this.y1StaticLine);
+		// c.strokeStyle = "#2238B2E7";
+		// c.stroke();
+		//
+		// c.beginPath();
+		// c.moveTo((this.xStaticLine - 1), this.yStaticLine);
+		// c.lineTo((this.x1StaticLine - 1), this.y1StaticLine);
+		// c.strokeStyle = "#2238B2E7";
+		// c.stroke();
 
 	}
 
@@ -292,7 +378,21 @@ function drawVerticalLines() {
 
 }
 
+// animate function that recursively calls itself and iterates through the shadow line array and calls the draw method for each object
+function animateShadowLine() {
+
+	requestAnimationFrame(animateShadowLine);
+
+	for (i = 0; i < shadowArray.length; i++) {
+
+		shadowArray[i].updateShadow();
+
+	}
+
+}
+
 // calls to the animate function
 animate();
 animateLine();
 drawVerticalLines();
+animateShadowLine();
