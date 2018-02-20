@@ -24,3 +24,14 @@ Your Milestone 1 passes at [Tier IV](https://bootcamp-coders.cnm.edu/projects/pe
 
 ### Edits &amp; Suggestions
 - [FontAwesome](https://fontawesome.com/) is a great resource for free iconography. 
+
+
+##Milestone 2b Feedback
+
+Your repository records snapshots of your work. Use branches to experiment with your project without breaking the main branch, rather than starting an entirely new repository.
+
+I like the direction and progress that you are making on your pwp.
+
+You are pursuing some complex features that could take a lot of time.  Be prepared to scale back some of the fancy javascript actions if you start running short on time. 
+
+Keep up the good work. Your Milestone 2b grade is Tier IV.
