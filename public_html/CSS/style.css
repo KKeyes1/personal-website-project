@@ -8,6 +8,7 @@ body {
 }
 
 #landing-page {
+	height: 100vh;
 	border: 1px solid black;
 	background-color: #241E23;
 }

@@ -18,7 +18,7 @@ var verticalLines = [];
 var shadowArray = [];
 
 // sets up the number of elements for each object
-var numberOfStars = 1000;
+var numberOfStars = 2000;
 var numberOfLines = 7;
 var numberOfVerticalLines = 15;
 var numberOfShadowLines = 3;
@@ -153,18 +153,6 @@ function Line(xLine, yLine, x1Line, dyLine) {
 		c.lineTo(this.x1Line, this.yLine);
 		c.strokeStyle = "#38B2E7";
 		c.stroke();
-
-		// c.beginPath();
-		// c.moveTo(this.xLine, (this.yLine + 1));
-		// c.lineTo(this.x1Line, (this.yLine + 1));
-		// c.strokeStyle = "#2238B2E7";
-		// c.stroke();
-		//
-		// c.beginPath();
-		// c.moveTo(this.xLine, (this.yLine - 1));
-		// c.lineTo(this.x1Line, (this.yLine - 1));
-		// c.strokeStyle = "#2238B2E7";
-		// c.stroke();
 
 	}
 
