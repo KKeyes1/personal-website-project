@@ -10,30 +10,9 @@
 		typeWriter.start();
 	});
 
-	ScrollRate = 10;
+setInterval('forceBottom()', 100);
 
-	function scrollDiv_init() {
-		DivElmnt = document.getElementById('scroll');
-		ReachedMaxScroll = false;
-
-		DivElmnt.scrollTop = 0;
-		PreviousScrollTop  = 0;
-
-		ScrollInterval = setInterval('scrollDiv()', ScrollRate);
-	}
-
-	function scrollDiv() {
-
-		if (!ReachedMaxScroll) {
-			DivElmnt.scrollTop = PreviousScrollTop;
-			PreviousScrollTop++;
-
-			ReachedMaxScroll = DivElmnt.scrollTop >= (DivElmnt.scrollHeight - DivElmnt.offsetHeight);
-		}
-		else {
-			ReachedMaxScroll = (DivElmnt.scrollTop == 0)?false:true;
-
-			DivElmnt.scrollTop = PreviousScrollTop;
-			PreviousScrollTop--;
-		}
-	}
+function forceBottom() {
+	var objDiv = document.getElementById("scroll");
+	objDiv.scrollTop = objDiv.scrollHeight;
+}
