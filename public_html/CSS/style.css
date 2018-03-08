@@ -1,4 +1,8 @@
 @media all {
+	.jumbotron {
+		padding: 4rem 2rem;
+	}
+}
 
 	body {
 		font-family: 'Open Sans', courier;
@@ -168,4 +172,3 @@
 		}
 	}
 
-}
