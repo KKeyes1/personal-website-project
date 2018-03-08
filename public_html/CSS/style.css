@@ -1,180 +1,171 @@
-body {
-	font-family: 'Open Sans', courier;
-	color: limegreen;
-}
+@media all {
 
-.tab-pane {
-	height: 100%;
-}
-
-.tab-content {
-	height: 100%;
-}
-
-#scroll {
-	height: 100%;
-	overflow: auto;
-}
-
-.console-color {
-	color: limegreen;
-}
-
-.jumbotron {
-	height: 100vh;
-	margin: 0;
-	background-color: black;
-}
-
-#container {
-	border: solid 2px limegreen;
-	height: 100%;
-	width: 80%;
-	margin: auto;
-	overflow: auto;
-}
-
-#madLib span {
-	color: fuchsia;
-}
-
-em {
-	color: fuchsia;
-}
-
-#generate {
-	background-color: transparent;
-	font-size: 1em;
-	border: none;
-	color: fuchsia;
-	padding: 0;
-	margin: 0;
-}
-
-#generate:hover {
-	background-color: transparent;
-	border: none;
-	color: fuchsia;
-}
-
-.nav-tabs {
-	border-bottom: none;
- }
-
-.nav-link {
-	color: limegreen;
-}
-
-.nav-link.active {
-	color: limegreen;
-	border-color: limegreen;
-}
-
-.nav-tabs .nav-link:hover {
-	color: fuchsia;
-	border-color: transparent;
-}
-
-.nav-tabs .nav-link.active {
-	color: limegreen;
-	background-color: transparent;
-	border-color: limegreen limegreen;
-}
-
-#consoleNav {
-	padding: 0;
-	border-bottom: solid 1px limegreen;
-}
-
-.navbar {
-	margin: auto;
-	padding: 0;
-	background-color: transparent;
-}
-
-.navbar a:hover {
-	color: fuchsia;
-}
-/*form*/
-
-.alert {
-	background-color: transparent;
-	color: fuchsia;
-	border: none;
-	margin: 0;
-	padding: 1em;
-}
-
-.form-control.alert {
-	background-color: transparent;
-	border: solid 1px limegreen;
-	color: limegreen;
-}
-
-.form-control {
-	background-color: transparent;
-	border: solid 1px limegreen;
-	color: limegreen;
-}
-
-.form-control:focus {
-	background-color: transparent;
-	border: solid 1px limegreen;
-	color: limegreen;
-}
-
-#sendButton {
-	background-color: transparent;
-	border: solid 1px limegreen;
-	color: limegreen;
-}
-
-/*@keyframes glowing {*/
-	/*0% { box-shadow: 0 0 0 limegreen; }*/
-	/*40% { box-shadow: 0 0 30px limegreen; }*/
-	/*60% { box-shadow: 0 0 30px limegreen; }*/
-	/*100% { box-shadow: 0 0 0 limegreen; }*/
-	/*60% { box-shadow: 0 0 30px limegreen; }*/
-	/*40% { box-shadow: 0 0 30px limegreen; }*/
-	/*0% { box-shadow: 0 0 0 limegreen; }*/
-/*}*/
-
-/*.button-glow {*/
-	/*animation: glowing 1000ms infinite;*/
-/*}*/
-
-#typeWriter {
-	width: 100%;
-	height: 100%;
-	padding-left: 30px;
-	padding-top: 30px;
-}
-
-#typeWriter span {
-	display: block;
-	/*font-size: 20px;*/
-	letter-spacing: 2px;
-}
-
-#typeWriter :last-child::after {
-	content: '_';
-	display: inline-block;
-	animation: blink 1s step-end infinite;
-}
-
-#typeWriter #init::after { display: none; }
-
-#typeWriter span.typewriter-item::before {
-	color: fuchsia;
-	content: '>';
-	display: inline-block;
-	margin-right: 10px;
-}
-@keyframes
-blink {  from, to {
-	opacity: 0;
-}
-	50% {
-		opacity: 1;
+	body {
+		font-family: 'Open Sans', courier;
+		color: limegreen;
 	}
+
+	s {
+		text-decoration: none;
+	}
+
+	.tab-pane {
+		height: 100%;
+	}
+
+	.tab-content {
+		height: 100%;
+	}
+
+	#scroll {
+		height: 100%;
+		overflow: auto;
+	}
+
+	.console-color {
+		color: limegreen;
+	}
+
+	.jumbotron {
+		height: 100vh;
+		margin: 0;
+		background-color: black;
+	}
+
+	#container {
+		border: solid 2px limegreen;
+		height: 100%;
+		width: 80%;
+		margin: auto;
+		overflow: auto;
+	}
+
+	#madLib span {
+		color: fuchsia;
+	}
+
+	em {
+		color: fuchsia;
+	}
+
+	#generate {
+		background-color: transparent;
+		font-size: 1em;
+		border: none;
+		color: fuchsia;
+		padding: 0;
+		margin: 0;
+	}
+
+	#generate:hover {
+		background-color: transparent;
+		border: none;
+		color: fuchsia;
+	}
+
+	.nav-tabs {
+		border-bottom: none;
+	}
+
+	.nav-link {
+		color: limegreen;
+	}
+
+	.nav-link.active {
+		color: limegreen;
+		border-color: limegreen;
+	}
+
+	.nav-tabs .nav-link:hover {
+		color: fuchsia;
+		border-color: transparent;
+	}
+
+	.nav-tabs .nav-link.active {
+		color: limegreen;
+		background-color: transparent;
+		border-color: limegreen limegreen;
+	}
+
+	#consoleNav {
+		padding: 0;
+		border-bottom: solid 1px limegreen;
+	}
+
+	.navbar {
+		margin: auto;
+		padding: 0;
+		background-color: transparent;
+	}
+
+	.navbar a:hover {
+		color: fuchsia;
+	}
+
+	/*form*/
+	.alert {
+		background-color: transparent;
+		color: fuchsia;
+		border: none;
+		margin: 0;
+		padding: 1em;
+	}
+
+	.form-control.alert {
+		background-color: transparent;
+		border: solid 1px limegreen;
+		color: limegreen;
+	}
+
+	.form-control {
+		background-color: transparent;
+		border: solid 1px limegreen;
+		color: limegreen;
+	}
+
+	.form-control:focus {
+		background-color: transparent;
+		border: solid 1px limegreen;
+		color: limegreen;
+	}
+
+	#sendButton {
+		background-color: transparent;
+		border: solid 1px limegreen;
+		color: limegreen;
+	}
+
+	#typeWriter {
+		width: 100%;
+		height: 100%;
+		padding-left: 30px;
+		padding-top: 30px;
+	}
+
+	#typeWriter span {
+		display: block;
+		/*font-size: 20px;*/
+		letter-spacing: 2px;
+	}
+
+	#typeWriter #init::after {
+		display: none;
+	}
+
+	#typeWriter span.typewriter-item::before {
+		color: fuchsia;
+		content: '>';
+		display: inline-block;
+		margin-right: 10px;
+	}
+
+	@keyframes blink {
+		from, to {
+			opacity: 0;
+		}
+		50% {
+			opacity: 1;
+		}
+	}
+
 }
