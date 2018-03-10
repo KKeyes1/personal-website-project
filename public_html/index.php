@@ -66,21 +66,25 @@
 			<div class="container py-3" id="container">
 
 				<!--			Console Navbar with tabs-->
-
-				<nav class="navbar" id="consoleNav">
-					<ul class="nav nav-tabs" role="tablist">
-						<li class="nav-item">
-							<a class="nav-link active" href="#main" role="tab" data-toggle="tab">Main</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#contact" role="tab" data-toggle="tab">Contact</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#proficiencies" role="tab" data-toggle="tab">Proficiencies</a>
-						</li>
-					</ul>
-					<a class="navbar-brand">Who Is Ken</a>
+				<nav class="navbar navbar-expand-md" id="consoleNav">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
+							<i class="fas fa-bars"></i>
+						</button>
+					</div>
+					<div class="collapse navbar-collapse" id="myNavbar">
+						<ul class="nav nav-tabs" role="tablist">
+							<li class="nav-item"><a href="#main" class="nav-link active" role="tab" data-toggle="tab">Main</a>
+							</li>
+							<li class="nav-item"><a href="#contact" class="nav-link" role="tab" data-toggle="tab">Contact</a>
+							</li>
+							<li class="nav-item"><a href="#proficiencies" class="nav-link" role="tab" data-toggle="tab">Proficiencies</a>
+							</li>
+						</ul>
+					</div>
+					<a class="navbar-brand pull-right">Who Is Ken</a>
 				</nav>
+
 
 				<!--			Tab Panels-->
 
