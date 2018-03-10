@@ -4,6 +4,7 @@
 		<meta charset="UTF-8">
 <!--		<meta http-equiv="refresh" content="5" >-->
 		<title>Who Is Ken</title>
+		<link rel="shortcut icon" type="image/x-icon" href="image/1520526304.ico">
 
 <!--		Bootstrap CSS-->
 		<link
@@ -56,8 +57,6 @@
 			src="js/rain.js"></script>
 		<script
 			src="js/typeWriter.js"></script>
-		<script
-			src="js/main-typewriter.js"></script>
 		<script
 			src="js/madlib-typewriter.js"></script>
 	</head>
