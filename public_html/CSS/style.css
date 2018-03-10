@@ -1,174 +1,229 @@
-@media all {
-	.jumbotron {
-		padding: 4rem 2rem;
+/*******************************************************************************************************************
+responsive media queries
+********************************************************************************************************************/
+
+
+/* APPLY BG IMAGE FOR WIDE SCREENS HERE */
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767px) {
+	body {
+	}
+	header {
 	}
 }
 
+@media only screen and (min-width: 768px) and (max-width: 991px) {
 	body {
-		font-family: 'Open Sans', courier;
-		color: limegreen;
 	}
+	header {
+	}
+}
 
-	s {
-		text-decoration: none;
-	}
 
-	.tab-pane {
-		height: 100%;
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+	body {
 	}
+	header {
+	}
+}
 
-	.tab-content {
-		height: 100%;
+@media only screen and (min-width: 1200px) {
+	body {
 	}
+	header {
+	}
+}
+/*for email contact form*/
+.m-y-1 {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
 
-	#scroll {
-		height: 100%;
-		overflow: auto;
-	}
+/*******************************************************************************************************************
+universal components
+********************************************************************************************************************/
 
-	.console-color {
-		color: limegreen;
-	}
+body {
+	font-family: 'Open Sans', courier;
+	color: limegreen;
+}
 
-	.jumbotron {
-		height: 100vh;
-		margin: 0;
-		background-color: black;
-	}
+.jumbotron {
+	height: 100vh;
+	margin: 0;
+	background-color: black;
+}
 
-	#container {
-		border: solid 2px limegreen;
-		height: 100%;
-		width: 80%;
-		margin: auto;
-		overflow: auto;
-	}
+#container {
+	border: solid 2px limegreen;
+	height: 100%;
+	width: 80%;
+	margin: auto;
+	overflow: auto;
+}
 
-	#madLib span {
-		color: fuchsia;
-	}
+.console-color {
+	color: limegreen;
+}
 
-	em {
-		color: fuchsia;
-	}
+/*******************************************************************************************************************
+CSS to force DIV relative div size for javascript scroll function
+********************************************************************************************************************/
 
-	#generate {
-		background-color: transparent;
-		font-size: 1em;
-		border: none;
-		color: fuchsia;
-		padding: 0;
-		margin: 0;
-	}
+.tab-pane {
+	height: 100%;
+}
 
-	#generate:hover {
-		background-color: transparent;
-		border: none;
-		color: fuchsia;
-	}
+.tab-content {
+	height: 100%;
+}
 
-	.nav-tabs {
-		border-bottom: none;
-	}
+#scroll {
+	height: 100%;
+	overflow: auto;
+}
 
-	.nav-link {
-		color: limegreen;
-	}
+/*******************************************************************************************************************
+CSS for main components
+********************************************************************************************************************/
 
-	.nav-link.active {
-		color: limegreen;
-		border-color: limegreen;
-	}
+.nav-tabs {
+	border-bottom: none;
+}
 
-	.nav-tabs .nav-link:hover {
-		color: fuchsia;
-		border-color: transparent;
-	}
+.nav-link {
+	color: limegreen;
+}
 
-	.nav-tabs .nav-link.active {
-		color: limegreen;
-		background-color: transparent;
-		border-color: limegreen limegreen;
-	}
+.nav-link.active {
+	color: limegreen;
+	border-color: limegreen;
+}
 
-	#consoleNav {
-		padding: 0;
-		border-bottom: solid 1px limegreen;
-	}
+.nav-tabs .nav-link:hover {
+	color: fuchsia;
+	border-color: transparent;
+}
 
-	.navbar {
-		margin: auto;
-		padding: 0;
-		background-color: transparent;
-	}
+.nav-tabs .nav-link.active {
+	color: limegreen;
+	background-color: transparent;
+	border-color: limegreen limegreen;
+}
 
-	.navbar a:hover {
-		color: fuchsia;
-	}
+#consoleNav {
+	padding: 0;
+	border-bottom: solid 1px limegreen;
+}
 
-	/*form*/
-	.alert {
-		background-color: transparent;
-		color: fuchsia;
-		border: none;
-		margin: 0;
-		padding: 1em;
-	}
+.navbar {
+	margin: auto;
+	padding: 0;
+	background-color: transparent;
+}
 
-	.form-control.alert {
-		background-color: transparent;
-		border: solid 1px limegreen;
-		color: limegreen;
-	}
+.navbar a:hover {
+	color: fuchsia;
+}
 
-	.form-control {
-		background-color: transparent;
-		border: solid 1px limegreen;
-		color: limegreen;
-	}
+/*******************************************************************************************************************
+Contact form
+********************************************************************************************************************/
 
-	.form-control:focus {
-		background-color: transparent;
-		border: solid 1px limegreen;
-		color: limegreen;
-	}
+.alert {
+	background-color: transparent;
+	color: fuchsia;
+	border: none;
+	margin: 0;
+	padding: 1em;
+}
 
-	#sendButton {
-		background-color: transparent;
-		border: solid 1px limegreen;
-		color: limegreen;
-	}
+.form-control.alert {
+	background-color: transparent;
+	border: solid 1px limegreen;
+	color: limegreen;
+}
 
-	#typeWriter {
-		width: 100%;
-		height: 100%;
-		padding-left: 30px;
-		padding-top: 30px;
-	}
+.form-control {
+	background-color: transparent;
+	border: solid 1px limegreen;
+	color: limegreen;
+}
 
-	#typeWriter span {
-		display: block;
-		/*font-size: 20px;*/
-		letter-spacing: 2px;
-	}
+.form-control:focus {
+	background-color: transparent;
+	border: solid 1px limegreen;
+	color: limegreen;
+}
 
-	#typeWriter #init::after {
-		display: none;
-	}
+#sendButton {
+	background-color: transparent;
+	border: solid 1px limegreen;
+	color: limegreen;
+}
 
-	#typeWriter span.typewriter-item::before {
-		color: fuchsia;
-		content: '>';
-		display: inline-block;
-		margin-right: 10px;
-	}
+/*******************************************************************************************************************
+typewriter button and inline element styles
+********************************************************************************************************************/
 
-	@keyframes blink {
-		from, to {
-			opacity: 0;
-		}
-		50% {
-			opacity: 1;
-		}
+#main button,
+#main button:hover,
+#main button:focus {
+	background-color: transparent;
+	font-size: 1em;
+	border: none;
+	color: fuchsia;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+}
+
+#madLib span {
+	color: fuchsia;
+}
+
+em {
+	color: fuchsia;
+}
+
+s {
+	text-decoration: none;
+}
+
+/*******************************************************************************************************************
+typewriter
+********************************************************************************************************************/
+
+#typeWriter {
+	width: 100%;
+	height: 100%;
+	padding-left: 30px;
+	padding-top: 30px;
+}
+
+#typeWriter span {
+	display: block;
+	/*font-size: 20px;*/
+	letter-spacing: 2px;
+}
+
+#typeWriter #init::after {
+	display: none;
+}
+
+#typeWriter span.typewriter-item::before {
+	color: fuchsia;
+	content: '>';
+	display: inline-block;
+	margin-right: 10px;
+}
+
+@keyframes blink {
+	from, to {
+		opacity: 0;
 	}
+	50% {
+		opacity: 1;
+	}
+}
 
