@@ -22,7 +22,8 @@ responsive media queries
 
 	#sendButton {
 		width: 100%;
-		margin: 0;
+		padding-top: 1em;
+		padding-bottom: 1em;
 	}
 }
 
@@ -56,10 +57,6 @@ body {
 .console-color {
 	color: limegreen;
 }
-
-#scroll {
-	position: absolute;
-}
 /*******************************************************************************************************************
 CSS to force DIV relative div size for javascript scroll function
 ********************************************************************************************************************/
@@ -71,10 +68,6 @@ CSS to force DIV relative div size for javascript scroll function
 /*******************************************************************************************************************
 CSS for main components
 ********************************************************************************************************************/
-.navbar-header {
-	width: 100%;
-}
-
 .navbar-toggler {
 	color: limegreen;
 }
@@ -153,7 +146,6 @@ Contact form
 	border: solid 1px limegreen;
 	color: limegreen;
 }
-
 /*******************************************************************************************************************
 typewriter button and inline element styles
 ********************************************************************************************************************/

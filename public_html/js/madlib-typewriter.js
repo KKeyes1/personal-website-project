@@ -46,6 +46,7 @@ function goAgain() {
 			'I take advantage of looking at problems differently than most. Recently I have been thinking about <em id="webSkillz">development</em>',
 			'<s id="iWant">I want to help people</s>',
 			'I will always be a student, but I hope to develop my skills to be able to do this. In the meantime, take a look at how my skills are developing by checking out my <em id="projects">bacon ipsum generator</em>',
+			'',
 			'So who am I?',
 			'I am Ken.',
 			'',

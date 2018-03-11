@@ -79,9 +79,6 @@
 							<li class="nav-item">
 								<a href="#contact" class="nav-link" role="tab" data-toggle="tab">Contact</a>
 							</li>
-							<li class="nav-item">
-								<a href="#proficiencies" class="nav-link" role="tab" data-toggle="tab">Proficiencies</a>
-							</li>
 						</ul>
 					</div>
 				</nav>
@@ -140,93 +137,6 @@
 							</form>
 							<div id="output-area"></div>
 							<div id="success-output-area"></div>
-					</div>
-
-					<!--				Proficiencies Tab Panel-->
-					<div role="tabpanel" class="tab-pane" id="proficiencies">
-							<div class="row my-5 mx-auto text-center" id="top-languages"
-								  title="Languages I have spent the most time with.">
-								<div class="col">
-									<i class="fab fa-html5 fa-3x"></i>
-								</div>
-								<div class="col">
-									<i class="fab fa-css3-alt fa-3x"></i>
-								</div>
-								<div class="col">
-									<i class="fab fa-js fa-3x"></i>
-								</div>
-								<div class="col">
-									<i class="fab fa-angular fa-3x"></i>
-								</div>
-								<div class="col">
-									<i class="fab fa-php fa-3x"></i>
-								</div>
-							</div>
-							<div class="row my-5 mx-auto text-center" id="browsers" title="Browsers I have installed.">
-								<div class="col">
-									<i class="fab fa-chrome fa-3x"></i>
-								</div>
-								<div class="col">
-									<i class="fab fa-firefox fa-3x"></i>
-								</div>
-								<div class="col">
-									<i class="fab fa-safari fa-3x"></i>
-								</div>
-								<div class="col">
-									<i class="fab fa-opera fa-3x"></i>
-								</div>
-							</div>
-							<div class="row my-5 mx-auto text-center" id="five-more" title="Still learning!">
-								<div class="col">
-									<i class="fab fa-node-js fa-3x"></i>
-								</div>
-								<div class="col">
-									<i class="fab fa-npm fa-3x"></i>
-								</div>
-								<div class="col">
-									<i class="fas fa-database fa-3x"></i>
-								</div>
-								<div class="col">
-									<i class="fab fa-linux fa-3x"></i>
-								</div>
-								<div class="col">
-									<i class="fab fa-wordpress fa-3x"></i>
-								</div>
-							</div>
-							<div class="row my-5 mx-auto text-center" id="online-resources"
-								  title="Some of my favorite online resources!">
-								<div class="col">
-									<i class="fab fa-reddit-alien fa-3x"></i>
-								</div>
-								<div class="col">
-									<i class="fab fa-stack-overflow fa-3x"></i>
-								</div>
-								<div class="col">
-									<i class="fab fa-codepen fa-3x"></i>
-								</div>
-								<div class="col">
-									<i class="fab fa-jsfiddle fa-3x"></i>
-								</div>
-							</div>
-							<div class="row my-5 mx-auto text-center" id="security-design"
-								  title="Physical security and design are some of my favorite places to play, also.">
-								<div class="col">
-									<i class="fab fa-keycdn fa-3x "></i>
-								</div>
-								<div class="col">
-									<i class="fas fa-user-secret fa-3x"></i>
-								</div>
-								<div class="col">
-									<i class="fas fa-pencil-alt fa-3x"></i>
-								</div>
-								<div class="col">
-									<i class="fas fa-file fa-3x"></i>
-								</div>
-								<div class="col">
-									<i class="fas fa-users fa-3x"></i>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 			<!--			Footer with Links-->
