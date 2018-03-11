@@ -71,7 +71,6 @@
 					<button type="button" class="navbar-toggler px-0" data-toggle="collapse" data-target="#myNavbar">
 						<i class="fas fa-bars"></i>
 					</button>
-					<a class="navbar-brand pull-right m-0" id="siteTitle">Who Is Ken</a>
 					<div class="collapse navbar-collapse" id="myNavbar">
 						<ul class="nav nav-tabs" role="tablist">
 							<li class="nav-item">
@@ -135,7 +134,7 @@
 									<div class="row px-3">
 										<div class="g-recaptcha col-lg-6 col-md-12 p-0 mb-3" data-theme="dark"
 											  data-sitekey="6LdL90cUAAAAAAAVEvxsqj4n0BT2MpfG1rJjcsbu"></div>
-										<input type="submit" class="btn btn-lg p-0 col-lg-6 col-md-12" value="Send" name="enter" id="sendButton">
+										<input type="submit" class="btn btn-lg col-lg-6 col-md-12" value="Send" name="enter" id="sendButton">
 									</div>
 								</div>
 							</form>

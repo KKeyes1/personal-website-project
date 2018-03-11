@@ -9,14 +9,17 @@ $(window).click(function() {
 $(function() {
 	let typeWriter = new TypeWriter('#typeWriter',
 		[
-		'\"Here\'s to the crazy ones, the misfits, the rebels, the troublemakers, the round pegs in the square holes... the ones who see things differently -- they\'re not fond of rules... You can quote them, disagree with them, glorify or vilify them, but the only thing you can\'t do is ignore them because they change things... they push the human race forward, and while some may see them as the crazy ones, we see genius, because the ones who are crazy enough to think that they can change the world, are the ones who do.\"',
-		' -Steve Jobs',
-		'',
-		'This quote has inspired me not to back down from my attempts to change the world.',
-		'I’ve made a game of the many professional directions I’ve followed in this pursuit.',
-		'',
-		'<button onclick="newTypewriter()">Click here</button> to see the various versions of me and my latest endeavor, programming.'
-	]);
+			'Who am I?',
+			'I am a web developer, but so much more than that, and I want to change the world.',
+			'',
+			'\"Here\'s to the crazy ones, the misfits, the rebels, the troublemakers, the round pegs in the square holes<button onclick="expand()">...</button><s id="quote"></s> and while some may see them as the crazy ones, we see genius, because the ones who are crazy enough to think that they can change the world, are the ones who do.\"',
+			' -Steve Jobs',
+			'',
+			'The support of my friends and family has given me the strength to continue this pursuit.',
+			'I have not taken the easy path to get where I am today, so I made a game to share some of that with you.',
+			'',
+			'<button onclick="newTypewriter()">Click here</button> to learn who I am.'
+		]);
 
 	typeWriter.start();
 });
@@ -35,22 +38,24 @@ function newTypewriter() {
 function goAgain() {
 	let typeWriter = new TypeWriter('#typeWriter',
 		[
-		'So who is Ken?',
-		'Read this, and regenerate it as many times as you like to learn more.',
-		'',
-		'<s id="iLove">I love learning</s>',
-		'I have already got my hands dirty with <em id="interests">locksmithing</em>',
-		'<s id="iAm">I am a designer</s>',
-		'Programming is my latest tool, I am diving into <em id="webSkillz">javascript</em>',
-		'<s id="iWant">I want to help people</s>',
-		'You can see my development on instagram, check out some fun challenges like my <em id="projects">bacon ipsum generator</em>',
-		'I look forward to hearing from you',
-		'',
-		'<em id="signOff">All my best</em>',
-		'    <em id="name">Ken</em>',
-		'',
-		'<button onclick="generate()">Click here</button> to see more.'
-	]);
+			'Read this, and regenerate it as many times as you like to learn more.',
+			'',
+			'<s id="iLove">I love learning</s>',
+			'I need to understand the world around me. An interest of mine is <em id="interests">locksmithing</em>',
+			'<s id="iAm">I think like a designer</s>',
+			'I take advantage of looking at problems differently than most. Recently I have been thinking about <em id="webSkillz">development</em>',
+			'<s id="iWant">I want to help people</s>',
+			'I will always be a student, but I hope to develop my skills to be able to do this. In the meantime, take a look at how my skills are developing by checking out my <em id="projects">bacon ipsum generator</em>',
+			'So who am I?',
+			'I am Ken.',
+			'',
+			'I hope to hear from you.',
+			'',
+			'<em id="signOff">All my best</em>,',
+			'<em id="name">Ken</em>',
+			'',
+			'<button onclick="generate()">Click here</button> to see more.'
+		]);
 
 	typeWriter.start();
 }
@@ -58,6 +63,7 @@ function goAgain() {
 //generate grabs elements of the main tab by ID and manipulates them on click.
 
 function generate() {
+
 
 	//replacement sentences and words
 
@@ -105,12 +111,11 @@ function generate() {
 	];
 
 	let iAmArray = [
-		"<s id='iAm'>I am a designer</s>",
-		"<s id='iAm'>I am a critical thinker</s>",
-		"<s id='iAm'>I am multi passionate</s>",
-		"<s id='iAm'>I am an architect</s>",
-		"<s id='iAm'>I am an artist</s>",
-		"<s id='iAm'>I am an engineer</s>"
+		"<s id='iAm'>I think like a designer</s>",
+		"<s id='iAm'>I think critically</s>",
+		"<s id='iAm'>I think like an architect</s>",
+		"<s id='iAm'>I think like an artist</s>",
+		"<s id='iAm'>I think an engineer</s>"
 	];
 
 	let webSkillz = [
@@ -128,7 +133,10 @@ function generate() {
 		"digital security",
 		"git",
 		"version control",
-		"project management"
+		"project management",
+		"security",
+		"health",
+		"safety"
 	];
 
 	let iWantArray = [
@@ -145,24 +153,19 @@ function generate() {
 		"javascript animations",
 		"bootstrap static pages",
 		"palindrome checker",
-		"capstone"
+		"capstone project",
+		"development",
 	];
 
 
 	let signOff = [
 		"Thank you",
-		"Best",
 		"My best",
-		"My best to you",
-		"All best",
 		"All the best",
 		"Best wishes",
-		"Bests",
 		"Best regards",
 		"Regards",
-		"Rgds",
 		"Warm Regards",
-		"Warmest",
 		"Warmly",
 		"Take care",
 		"Thanks",
@@ -182,7 +185,8 @@ function generate() {
 		"Kenneth",
 		"Ken Keyes",
 		"Kenneth Keyes",
-		"KC"];
+		"KC"
+	];
 
 	let newILoveArray = iLoveArray[Math.floor(Math.random() * iLoveArray.length)];
 	document.getElementById("iLove").innerHTML = newILoveArray;
@@ -209,6 +213,13 @@ function generate() {
 	document.getElementById("name").innerHTML = newName;
 
 }
+
+function expand() {
+	document.getElementById("quote").innerHTML = "the ones who see things differently -- they're not fond of rules... You can quote them, disagree with them, glorify or vilify them, but the only thing you can't do is ignore them because they change things... they push the human race forward,";
+}
+
+
+
 
 //Scroll Function that will force the "main" tab to the bottom every second if the content overflows
 
