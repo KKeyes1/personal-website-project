@@ -1,9 +1,15 @@
+//forces the menu to collapse on click
+
+$(window).click(function() {
+	$('.navbar-collapse').collapse('hide');
+});
+
 //First call to typewriter
 
 $(function() {
 	let typeWriter = new TypeWriter('#typeWriter',
 		[
-		'<i class="fas fa-quote-left pr-2"></i>Here\'s to the crazy ones, the misfits, the rebels, the troublemakers, the round pegs in the square holes... the ones who see things differently -- they\'re not fond of rules... You can quote them, disagree with them, glorify or vilify them, but the only thing you can\'t do is ignore them because they change things... they push the human race forward, and while some may see them as the crazy ones, we see genius, because the ones who are crazy enough to think that they can change the world, are the ones who do.<i class="fas fa-quote-right pl-2"></i>',
+		'\"Here\'s to the crazy ones, the misfits, the rebels, the troublemakers, the round pegs in the square holes... the ones who see things differently -- they\'re not fond of rules... You can quote them, disagree with them, glorify or vilify them, but the only thing you can\'t do is ignore them because they change things... they push the human race forward, and while some may see them as the crazy ones, we see genius, because the ones who are crazy enough to think that they can change the world, are the ones who do.\"',
 		' -Steve Jobs',
 		'',
 		'This quote has inspired me not to back down from my attempts to change the world.',
@@ -206,9 +212,9 @@ function generate() {
 
 //Scroll Function that will force the "main" tab to the bottom every second if the content overflows
 
-setInterval('forceBottom()', 100);
-
-function forceBottom() {
-	let objDiv = document.getElementById("scroll");
-	objDiv.scrollTop = objDiv.scrollHeight;
-}
+// setInterval('forceBottom()', 100);
+//
+// function forceBottom() {
+// 	let objDiv = document.getElementById("scroll");
+// 	objDiv.scrollTop = objDiv.scrollHeight;
+// }
