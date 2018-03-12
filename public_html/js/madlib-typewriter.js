@@ -15,7 +15,7 @@ $(function() {
 			'\"Here\'s to the crazy ones, the misfits, the rebels, the troublemakers, the round pegs in the square holes<button onclick="expand()">...</button><s id="quote"></s> and while some may see them as the crazy ones, we see genius, because the ones who are crazy enough to think that they can change the world, are the ones who do.\"',
 			' -Steve Jobs',
 			'',
-			'The support of my friends and family has given me the strength to continue this pursuit.',
+			'This kind of support from my friends and family motivates my pursuit.',
 			'I have not taken the easy path to get where I am today, so I made a game to share some of that with you.',
 			'',
 			'<button onclick="newTypewriter()">Click here</button> to learn who I am.'
@@ -38,19 +38,15 @@ function newTypewriter() {
 function goAgain() {
 	let typeWriter = new TypeWriter('#typeWriter',
 		[
-			'Read this, and regenerate it as many times as you like to learn more.',
-			'',
 			'<s id="iLove">I love learning</s>',
 			'I need to understand the world around me. An interest of mine is <em id="interests">locksmithing</em>',
 			'<s id="iAm">I think like a designer</s>',
 			'I take advantage of looking at problems differently than most. Recently I have been thinking about <em id="webSkillz">development</em>',
 			'<s id="iWant">I want to help people</s>',
-			'I will always be a student, but I hope to develop my skills to be able to do this. In the meantime, take a look at how my skills are developing by checking out my <em id="projects">bacon ipsum generator</em>',
+			'I will always be a student, but I hope to develop my skills enough to be able to do that. In the meantime, take a look at how my skills are developing by checking out my <em id="projects">bacon ipsum api challenge</em>',
 			'',
 			'So who am I?',
 			'I am Ken.',
-			'',
-			'I hope to hear from you.',
 			'',
 			'<em id="signOff">All my best</em>,',
 			'<em id="name">Ken</em>',
@@ -148,7 +144,7 @@ function generate() {
 	];
 
 	let projects = [
-		"bacon ipsum generator",
+		"bacon ipsum api challenge",
 		"ROT 13 encoder",
 		"anagram maker",
 		"javascript animations",
@@ -223,8 +219,8 @@ function expand() {
 
 
 //Scroll Function that will force the "main" tab to the bottom every second if the content overflows
-
-// setInterval('forceBottom()', 100);
+//
+// setInterval('flashScroll()', 100);
 //
 // function forceBottom() {
 // 	let objDiv = document.getElementById("scroll");
