@@ -148,6 +148,7 @@
 						class="fab fa-linkedin fa-3x"></i></a>
 				<a class="navbar-item console-color p-2" target="_blank" href="https://github.com/KKeyes1"><i
 						class="fab fa-github-square fa-3x"></i></a>
+				<a class="navbar-item console-color p-2" href="mailto:ken@whoisken.com?subject=Who Is Ken"><i class="fas fa-envelope fa-3x"></i></a>
 			</nav>
 
 

@@ -15,7 +15,7 @@ $(function() {
 			'\"Here\'s to the crazy ones, the misfits, the rebels, the troublemakers, the round pegs in the square holes<button onclick="expand()">...</button><s id="quote"></s> and while some may see them as the crazy ones, we see genius, because the ones who are crazy enough to think that they can change the world, are the ones who do.\"',
 			' -Steve Jobs',
 			'',
-			'This kind of support from my friends and family motivates my pursuit.',
+			'With the support I’ve gained from friends and family with this perspective I have persisted!',
 			'I have not taken the easy path to get where I am today, so I made a game to share some of that with you.',
 			'',
 			'<button onclick="newTypewriter()">Click here</button> to learn who I am.'
@@ -65,10 +65,9 @@ function generate() {
 	//replacement sentences and words
 
 	let iLoveArray = [
-		"<s id='iLove'>I love learning</s>",
-		"<s id='iLove'>I love facing new problems</s>",
-		"<s id='iLove'>I love sharing what I have learned with others</s>",
-		"<s id='iLove'>I love the the process of breaking down an insurmountable obstacle until the path to overcome it becomes clear</s>"
+		"<s id='iLove'>I <em>also</em> love facing new problems</s>",
+		"<s id='iLove'>I <em>also</em> love sharing what I have learned with others</s>",
+		"<s id='iLove'>I <em>also</em> love the the process of breaking down an insurmountable obstacle until the path to overcome it becomes clear</s>"
 	];
 
 	let interests = [
@@ -108,11 +107,10 @@ function generate() {
 	];
 
 	let iAmArray = [
-		"<s id='iAm'>I think like a designer</s>",
-		"<s id='iAm'>I think critically</s>",
-		"<s id='iAm'>I think like an architect</s>",
-		"<s id='iAm'>I think like an artist</s>",
-		"<s id='iAm'>I think an engineer</s>"
+		"<s id='iAm'>I <em>also</em> think critically</s>",
+		"<s id='iAm'>I <em>also</em> think like an architect</s>",
+		"<s id='iAm'>I <em>also</em> think like an artist</s>",
+		"<s id='iAm'>I <em>also</em> think an engineer</s>"
 	];
 
 	let webSkillz = [
@@ -137,10 +135,9 @@ function generate() {
 	];
 
 	let iWantArray = [
-		"<s id='iWant'>I want to help people</s>",
-		"<s id='iWant'>I want to make the world a better place</s>",
-		"<s id='iWant'>I want to work with you</s>",
-		"<s id='iWant'>I want to make a difference</s>",
+		"<s id='iWant'>I <em>also</em> want to make the world a better place</s>",
+		"<s id='iWant'>I <em>also</em> want to work with you</s>",
+		"<s id='iWant'>I <em>also</em> want to make a difference</s>",
 	];
 
 	let projects = [
