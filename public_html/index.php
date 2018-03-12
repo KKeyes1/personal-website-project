@@ -131,7 +131,7 @@
 									<div class="row px-3">
 										<div class="g-recaptcha col-lg-6 col-md-12 p-0 mb-3" data-theme="dark"
 											  data-sitekey="6LdL90cUAAAAAAAVEvxsqj4n0BT2MpfG1rJjcsbu"></div>
-										<input type="submit" class="btn btn-lg col-lg-6 col-md-12" value="Send" name="enter" id="sendButton">
+										<input type="submit" class="btn col-lg-6 col-md-12 py-lg-4 py-md-4 py-sm-4 mb-3" value="Send" name="enter" id="sendButton">
 									</div>
 								</div>
 							</form>
