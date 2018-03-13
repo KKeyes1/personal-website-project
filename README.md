@@ -26,7 +26,7 @@ Your Milestone 1 passes at [Tier IV](https://bootcamp-coders.cnm.edu/projects/pe
 - [FontAwesome](https://fontawesome.com/) is a great resource for free iconography. 
 
 
-##Milestone 2b Feedback
+## Milestone 2b Feedback
 
 Your repository records snapshots of your work. Use branches to experiment with your project without breaking the main branch, rather than starting an entirely new repository.
 
@@ -35,3 +35,14 @@ I like the direction and progress that you are making on your pwp.
 You are pursuing some complex features that could take a lot of time.  Be prepared to scale back some of the fancy javascript actions if you start running short on time. 
 
 Keep up the good work. Your Milestone 2b grade is Tier IV.
+
+## Final PWP Feedback
+Congratulations on an awesome PWP - this is creative, attractive and functional - nice work.
+The text size is just a little small when viewed on mobile - but that's a small adjustment.
+
+Your code looks good, your project is set up to spec, and your contact form works great. Your final PWP milestone passes at [Tier IV](https://bootcamp-coders.cnm.edu/projects/personal/rubric/). Your cumulative PWP score is 40/40.
+
+- Milestone 1: Tier IV
+- Milestone 2a: Tier IV
+- Milestone 2b: Tier IV
+- PWP Final: IV
